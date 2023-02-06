@@ -1,0 +1,194 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "My Flask API",
+    "version": "1.0.0"
+  },
+  "host": "127.0.0.1:5000",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/user/{cpf}": {
+      "get": {
+        "tags": [
+          "Usuário"
+        ],
+        "summary": "Busca um usuário pelo CPF",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "cpf",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "cpf": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "tel": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Usuário"
+        ],
+        "summary": "Atualiza os dados de um usuário pelo CPF",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "cpf",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "body",
+            "name": "data",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "tel": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "cpf": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "tel": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Usuário"
+        ],
+        "summary": "Deleta um usuário pelo CPF",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "cpf",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "User not found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user": {
+      "post": {
+        "tags": [
+          "Usuário"
+        ],
+        "summary": "Cria um novo usuário",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "data",
+            "description": "User data",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "cpf": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "tel": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "User created",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "cpf": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "tel": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
