@@ -1,4 +1,4 @@
-from repository import get_user, create_user, update_user, delete_user
+from models import get_user, create_user, update_user, delete_user
 
 class User:
     def __init__(self, cpf, name, tel):
